@@ -1,0 +1,32 @@
+{% extends 'app/base.html'%}
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block dangnhap %}
+        <h5> Kết quả tìm kiếm cho {{search}} </h5><br/>
+        <div class="row" style ="width:100%">
+            {%for truyen in keys %}
+              <div class="col-lg-3">
+              <img class= "thumbnail" src="{{truyen.IMAGEURL}}" style="width: 280px;" >
+              <div class="box-element product" style="width: 280px">
+                  <h6><strong>{{truyen.tentruyen}}</strong></h6>
+                  <hr>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <a class="nav-link" href="{% url 'doctruyen' %}">Đọc truyện</a>
+                <h4 style="display: inline-block; float:right"><strong>{{truyen.trangthai}}</strong></h4>
+                  </ul>
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+        {% endblock dangnhap %}
+    </body>
+</html>
